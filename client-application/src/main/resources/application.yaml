@@ -1,0 +1,20 @@
+spring:
+  application:
+    name: client-application
+  security:
+    oauth2:
+      client:
+        registration:
+          healthcare-client:
+            provider: healthcare-provider
+            client-id: healthcare-client
+            client-secret: healthcare-secret
+            authorization-grant-type: client_credentials
+            scope: read
+        provider:
+          healthcare-provider:
+            token-uri: http://localhost:9000/oauth2/token
+
+logging:
+  level:
+    org.springframework.security: DEBUG

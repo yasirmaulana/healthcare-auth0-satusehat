@@ -1,10 +1,31 @@
 spring:
   application:
     name: resource-server
+  datasource:
+    url: jdbc:postgresql://localhost:5432/satusehat
+    username: yasir
+    password: yasir
+    driver-class-name: org.postgresql.Driver
+  jpa:
+    hibernate:
+      ddl-auto: update
+    show-sql: true
   security:
     oauth2:
       resourceserver:
         jwt:
           issuer-uri: http://localhost:9000
+      client:
+        registration:
+          satusehat:
+            client-id: tOLFNJ9POlQrURTHv3SrPWodmdHe565t09YYIVzH8VDOQiDo
+            client-secret: wVzufkciWMvSUS1mYDAMvADRcNcnhJtAF5JP0hzEW1wTjQk6qlwpQ6JZkbqaq8X8
+            scope: read
+            authorization-grant-type: client_credentials
+            provider: satusehat-provider
+        provider:
+          satusehat-provider:
+            token-uri: https://api-satusehat-stg.dto.kemkes.go.id/oauth2/v1/accesstoken
+
 server:
   port: 8081

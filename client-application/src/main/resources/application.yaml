@@ -18,3 +18,8 @@ spring:
 logging:
   level:
     org.springframework.security: DEBUG
+
+app:
+  product:
+    resource-server-url: http://localhost:8081/v1/healthcare-product
+    client-registration-id: healthcare-client
